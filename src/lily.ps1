@@ -28,7 +28,7 @@ function showLogo() {
                            ░░██████   v$ENV:_LILY_VERSION
                             ░░░░░░   
 
-typy "manual" to show command list
+Type "manual" to show command list
 
 "@
 }

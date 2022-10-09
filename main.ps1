@@ -1,6 +1,9 @@
 ﻿# Encoding UTF-8 with BOM
 Remove-Module PSReadLine
 chcp 65001
+function Global:prompt {
+     "[" + (Get-Date -Format "yy/MM/dd hh:MM:ss") + "] " + (Split-Path (Get-Location) -Leaf) + " >> "
+}
 
 $Env:_LILY_VERSION="0.1.0"
 $Env:_LILY_ROOT="$PSScriptRoot"
