@@ -1,7 +1,12 @@
 ﻿$ROOT_PROFILE=$(Join-Path $Env:_LILY_ROOT "bookmark.txt")
 $USER_PROFILE=$(Join-Path $Env:USERPROFILE "bookmark.txt")
 
-foreach($line in Get-Content $ROOT_PROFILE) {
-    echo $line
-    doskey /exename=powershell.exe "$line"
+if (Test-Path $USER_PROFILE) {
+    $PROFILE=$USER_PROFILE
+} else {
+    $PROFILE=$ROOT_PROFILE
+}
+
+foreach($uri in Get-Content $PROFILE) {
+    if (!($uri -match "^#")){ bopen $uri }
 }

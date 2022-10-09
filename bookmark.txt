@@ -1,0 +1,4 @@
+# Lines whose first character is # are recognized as comments and are not loaded.
+https://www.google.com/
+https://www.amazon.co.jp/
+https://github.com/
