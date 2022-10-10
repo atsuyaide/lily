@@ -1,4 +1,6 @@
-als=doskey /exename=powershell.exe /macros
-google=bopen https://www.google.com/
-github=bopen https://github.com/
-lilium=bopen https://en.wikipedia.org/wiki/Lilium
+als=pdoskey /macros;#=# Displays a list of Alias-registered commands
+pc=Convert-Path $pwd | clip;#=# Copies the current directory path to the clipboard
+google=bopen "https://www.google.com/";#=# Open Google in the default browser
+lilium=bopen "https://en.wikipedia.org/wiki/Lilium";#=# Open the Lilium page on Wikipedia
+liliumja=bopen "https://ja.wikipedia.org/wiki/ƒ†ƒŠ";#=# Open the Lilium page on Wikipedia(ja)
+g=Get-Location

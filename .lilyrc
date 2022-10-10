@@ -1,6 +1,4 @@
-﻿## Change the default prompt
-
-## HOME Directory
+﻿## HOME Directory
 ## Set the home directory. Lily will go to this path when it starts up.
 $Env:HOME=$Env:USERPROFILE
 ## If you want it to start on Desktop

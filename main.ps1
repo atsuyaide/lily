@@ -1,16 +1,12 @@
 ﻿# Encoding UTF-8 with BOM
 Remove-Module PSReadLine
-chcp 65001
-function Global:prompt {
-     "[" + (Get-Date -Format "yy/MM/dd hh:MM:ss") + "] " + (Split-Path (Get-Location) -Leaf) + " >> "
-}
 
-$Env:_LILY_VERSION="0.1.0"
-$Env:_LILY_ROOT="$PSScriptRoot"
-$Env:_LILY_SRC=$(Join-Path "$Env:_LILY_ROOT" "src")
-$Env:PATH="$Env:_LILY_SRC;" + $Env:PATH
+$Env:_VERSION="0.1.0"
+$Env:_ROOT="$PSScriptRoot"
+$Env:_SRC=$(Join-Path "$Env:_ROOT" "src")
+$Env:PATH="$Env:_SRC;" + $Env:PATH
 $Env:HOME=$Env:USERPROFILE
+Set-Item function:Global:prompt {$host.UI.WriteLine("Green", $host.UI.RawUI.BackgroundColor,(Get-Location).Path); Get-Date -Format "yy/MM/dd hh:MM:ss >> " }
 
-lily init
-
+lily load 
 cd $Env:HOME

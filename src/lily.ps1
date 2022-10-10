@@ -1,7 +1,7 @@
 ﻿# Encoding UTF-8 with BOM
 
-#%# lily
-#%#      Lily関連の
+#=# lily
+#=#  Lily関連の
 
 Param(
    [String]$Command
@@ -9,7 +9,7 @@ Param(
 
 
 function showVersion() {
-   echo "v$Env:_LILY_VERSION"
+   echo "v$Env:_VERSION"
 }
 
 function showLogo() {
@@ -25,7 +25,7 @@ function showLogo() {
    ███████████ █████ █████ ░░███████ 
   ░░░░░░░░░░░ ░░░░░ ░░░░░   ░░░░░███ 
                             ███ ░███ 
-                           ░░██████   v$ENV:_LILY_VERSION
+                           ░░██████   v$ENV:_VERSION
                             ░░░░░░   
 
 Type "manual" to show command list
@@ -33,11 +33,15 @@ Type "manual" to show command list
 "@
 }
 
-function initialize() {
-   cls
+function load() {
    ainit
    cinit
    showLogo
+}
+
+function reload() {
+   cls
+   load
 }
 
 function showHelp() {
@@ -50,8 +54,10 @@ if ($Command -eq "version") {
    showVersion
 } elseif ($Command -eq "logo") {
    showLogo
-} elseif ($Command -eq "init") {
-   initialize 
+} elseif ($Command -eq "load") {
+   load 
+} elseif ($Command -eq "reload") {
+   reload 
 } elseif ($Command -eq "help") {
    showHelp
 } else {

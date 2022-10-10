@@ -1,4 +1,4 @@
-﻿$ROOT_PROFILE=$(Join-Path $Env:_LILY_ROOT "bookmark.txt")
+﻿$ROOT_PROFILE=$(Join-Path $Env:_ROOT "bookmark.txt")
 $USER_PROFILE=$(Join-Path $Env:USERPROFILE "bookmark.txt")
 
 if (Test-Path $USER_PROFILE) {
