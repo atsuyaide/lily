@@ -1,4 +1,5 @@
-﻿#=# manual
+﻿# Encoding UTF-8 with BOM
+#=# manual
 #=#  Displays list of available commands
 
 function showManual {

@@ -8,12 +8,12 @@ Param(
 
 
 function showVersion() {
-   echo "v$Env:_VERSION"
+   Write-Output "v$Env:_VERSION"
 }
 
 function showLogo() {
    # Using DOS Rabel in https://textkool.com/ja/ascii-art-generator
-   Write-Host @"
+   Write-Output @"
 
    █████        ███  ████            
   ░░███        ░░░  ░░███            
@@ -44,7 +44,9 @@ function reload() {
 }
 
 function showHelp() {
-   Write-Host @"
+   Write-Output @"
+Lily v$Env:_VERSION
+
 This is help.
 "@
 }
@@ -58,6 +60,8 @@ if ($Command -eq "version") {
 } elseif ($Command -eq "reload") {
    reload 
 } elseif ($Command -eq "help") {
+   showHelp
+} elseif ($Command -eq "") {
    showHelp
 } else {
    Write-Host "`"$command`" does not defined"

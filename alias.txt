@@ -1,6 +1,6 @@
 sh=start $Env:HOME;#=# Open $Env:HOME
-ch=cd $Env:HOME;#=# Go to $Env:HOME directory
-gl=Get-Location
+ch=cd $Env:HOME;#=# Go to $Env:HOME
+gel=Get-Location
 pc=Convert-Path $pwd | clip;#=# Copies the current directory path to the clipboard
 google=bopen "https://www.google.com/";#=# Open Google in the default browser
 lilium=bopen "https://en.wikipedia.org/wiki/Lilium";#=# Open the Lilium page on Wikipedia

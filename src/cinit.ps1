@@ -1,4 +1,8 @@
-﻿$ROOT_PROFILE=$(Join-Path $Env:_ROOT ".lilyrc")
+﻿# Encoding UTF-8 with BOM
+#=# cinit
+#=#  Reload .lilyrc
+
+$ROOT_PROFILE=$(Join-Path $Env:_ROOT ".lilyrc")
 $USER_PROFILE=$(Join-Path $Env:USERPROFILE ".lilyrc")
 
 if (Test-Path $USER_PROFILE) {

@@ -1,3 +1,4 @@
+﻿# Encoding UTF-8 with BOM
 #=# pdoskey
 #=#  Run doskey on Powershell
 

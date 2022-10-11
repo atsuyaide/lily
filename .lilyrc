@@ -21,3 +21,6 @@ $Env:DefaultBrowser="C:\Program Files (x86)\Microsoft\Edge\Application\msedge.ex
 ## Note: Not all commands can be fully supported due to conflicting command names (e.g. `ls` command).
 ##       If you have a better solution, please let us know in an Issue:)
 #$Env:PATH="C:\Program Files\Git\bin;C:\Program Files\Git\usr\bin;" + $Env:PATH
+
+## Promt Settins
+Set-Item function:Global:prompt {$host.UI.WriteLine("Green", $host.UI.RawUI.BackgroundColor,(Get-Location).Path); Get-Date -Format "yy/MM/dd hh:MM:ss >> " }
