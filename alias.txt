@@ -1,6 +1,7 @@
-als=pdoskey /macros;#=# Displays a list of Alias-registered commands
+sh=start $Env:HOME;#=# Open $Env:HOME
+ch=cd $Env:HOME;#=# Go to $Env:HOME directory
+gl=Get-Location
 pc=Convert-Path $pwd | clip;#=# Copies the current directory path to the clipboard
 google=bopen "https://www.google.com/";#=# Open Google in the default browser
 lilium=bopen "https://en.wikipedia.org/wiki/Lilium";#=# Open the Lilium page on Wikipedia
-liliumja=bopen "https://ja.wikipedia.org/wiki/ユリ";#=# Open the Lilium page on Wikipedia(ja)
-g=Get-Location
+liliumja=bopen "https://ja.wikipedia.org/wiki/ユリ";#=# 日本語版Wikipediaでユリのページを開きます

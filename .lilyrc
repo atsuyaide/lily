@@ -6,9 +6,9 @@ $Env:HOME=$Env:USERPROFILE
 
 ## Browser Setting
 ## Set the default browser. The browser set here will be used by `bopen` command.
-$Global:DefaultBrowser="C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
+$Env:DefaultBrowser="C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
 ## If you want to specify Chrome as your default browser (Chrome must be installed)
-# $Global:DefaultBrowser="C:\Program Files\Google\Chrome\Application\chrome.exe"
+# $Env:DefaultBrowser="C:\Program Files\Google\Chrome\Application\chrome.exe"
 
 ## Miniconda(Python)
 ## If you have Miniconda installed on your $Env:USERPROFILE, you can activate conda with the following command.

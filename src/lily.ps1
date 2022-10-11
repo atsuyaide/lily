@@ -1,7 +1,6 @@
 ﻿# Encoding UTF-8 with BOM
-
 #=# lily
-#=#  Lily関連の
+#=#  Open the URL passed as argument in the default browser
 
 Param(
    [String]$Command
@@ -61,6 +60,6 @@ if ($Command -eq "version") {
 } elseif ($Command -eq "help") {
    showHelp
 } else {
-   Write-Host "未定義のサブコマンドです."
+   Write-Host "`"$command`" does not defined"
    showHelp
 }
