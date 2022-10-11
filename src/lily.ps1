@@ -43,6 +43,10 @@ function reload() {
    load
 }
 
+function showLicense {
+   Get-Content "$Env:_ROOT\LICENSE"
+}
+
 function showHelp() {
    Write-Output @"
 Lily v$Env:_VERSION
@@ -57,6 +61,8 @@ if ($Command -eq "version") {
    showLogo
 } elseif ($Command -eq "load") {
    load 
+} elseif ($Command -eq "license") {
+   showLicense 
 } elseif ($Command -eq "reload") {
    reload 
 } elseif ($Command -eq "help") {
