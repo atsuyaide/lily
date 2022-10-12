@@ -1,6 +1,7 @@
-﻿# Encoding UTF-8 with BOM
-#=# lily
-#=#  Open the URL passed as argument in the default browser
+﻿<#
+    .SYNOPSIS
+      Open the URL passed as argument in the default browser
+#>
 
 Param(
    [String]$Command

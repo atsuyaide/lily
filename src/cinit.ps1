@@ -1,6 +1,7 @@
-﻿# Encoding UTF-8 with BOM
-#=# cinit
-#=#  Reload .lilyrc
+﻿<#
+    .SYNOPSIS
+        Reload .lilyrc
+#>
 
 $ROOT_PROFILE=$(Join-Path $Env:_ROOT ".lilyrc")
 $USER_PROFILE=$(Join-Path $Env:USERPROFILE ".lilyrc")

@@ -1,5 +1,7 @@
-﻿#=# ainit
-#=#  Register the contents of alias.txt as command
+﻿<#
+    .SYNOPSIS
+        Register the contents of alias.txt as command
+#>
 
 $ROOT_PROFILE=$(Join-Path $Env:_ROOT "alias.txt")
 
