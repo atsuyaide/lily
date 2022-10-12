@@ -58,7 +58,7 @@ Lily は `main.ps1`を PowerShell が読み込ませるというシンプルな�
 ### コマンドとエイリアス
 
 Lily ではデフォルトの PowerShell 関連のコマンドに加えて様々なコマンド(例: `manual`, `google`, `lily`, ...)を実行可能です.
-これらの Lily 特有のコマンドはコマンドとエイリアスに分類できます.
+これらの Lily 特有の機能はコマンドとエイリアスに分類できます.
 `manual`コマンドではコマンドとエイリアスに分けて一覧を表示します.
 
 | 種類    | 説明                                                                                                   |
@@ -71,7 +71,7 @@ Lily ではデフォルトの PowerShell 関連のコマンドに加えて様々
 Lily は環境変数や設定ファイルを編集することで柔軟なカスタマイズが可能です.
 
 まずは事前準備として`lily init`を実行してください.
-ファイルを保存するか聞かれるため, 上書きしたくないなどの事情がなければ全て Enter で完了してください.
+ファイルを保存するか聞かれるため, 上書きしたくない事情がなければ全て Enter で完了してください.
 
 ### 起動時の設定を追加する
 
@@ -89,6 +89,8 @@ $Env:DefaultBrowser="C:\path\to\Chrome.exe" # NOTE: Specify the path to the Chro
 - 起動時の初期ディレクトリをデスクトップに
 - デフォルトのブラウザを Chrome に
 
+Lily を再起動し初期ディレクトリが変わっていることを確認してください.
+
 ### 機能を追加する
 
 機能を追加する方法には, コマンド登録かエイリアス登録かの二種類があります.
@@ -98,7 +100,7 @@ $Env:DefaultBrowser="C:\path\to\Chrome.exe" # NOTE: Specify the path to the Chro
 
 |         | Easiness | Arguments | Pipeline | Complex processing |
 | :------ | :------: | :-------: | :------: | :----------------: |
-| Command |    x     |     x     |    x     |         x          |
+| Command | :check:  |     x     |    x     |         x          |
 | Alias   |    xx    |     x     |          |                    |
 
 例として, `github`で GitHub をブラウザで開くコマンドを追加してみましょう.
