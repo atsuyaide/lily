@@ -4,4 +4,4 @@
 #>
 
 
-pdoskey /macros | sort | ForEach-Object { $_ -replace ";#=#(.*?)$", ""}
+pdoskey /macros | Sort-Object | ForEach-Object { $_ -replace ";#=#(.*?)$", ""}

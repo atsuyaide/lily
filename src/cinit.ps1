@@ -3,16 +3,19 @@
         Reload .lilyrc
 #>
 
-$ROOT_PROFILE=$(Join-Path $Env:_ROOT ".lilyrc")
-$USER_PROFILE=$(Join-Path $Env:USERPROFILE ".lilyrc")
+# Load root profile
+$Lilyrc=$(Join-Path "$Env:_ROOT" ".lilyrc")
+$Lilyrc_TMP=$(Join-Path "$Env:USERPROFILE" "lilyrc.ps1")
+Copy-Item -Force "$Lilyrc" "$Lilyrc_TMP"
+. "$Lilyrc_TMP"
+Remove-Item -Force "$Lilyrc_TMP"
 
-if (Test-Path $USER_PROFILE) {
-    $PROFILE=$USER_PROFILE
-} else {
-    $PROFILE=$ROOT_PROFILE
+# Load user profile
+$USER_PROFILE=$(Join-Path "$Env:USERPROFILE" ".lilyrc")
+if (Test-Path "$USER_PROFILE") {
+    $Lilyrc=$(Join-Path "$Env:USERPROFILE" ".lilyrc")
+    $Lilyrc_TMP=$(Join-Path "$Env:USERPROFILE" "lilyrc.ps1")
+    Copy-Item -Force "$Lilyrc" "$Lilyrc_TMP"
+    . "$Lilyrc_TMP"
+    Remove-Item -Force "$Lilyrc_TMP"
 }
-
-$PROFILE_TMP=$(Join-Path $Env:USERPROFILE "lilyrc.ps1")
-Copy-Item -Force $PROFILE $PROFILE_TMP
-. $PROFILE_TMP
-Remove-Item -Force $PROFILE_TMP

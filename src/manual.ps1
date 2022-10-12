@@ -13,4 +13,4 @@ Get-ChildItem "$env:_SRC\[a-zA-Z]`*.ps1" -File | Foreach-Object {
 Write-Output ""
 
 Write-Output "==== Aliases ===="
-Write-Output $(pdoskey /macros | sort | Select-String ";#=#" | ForEach-Object { $_ -replace "^(.*?)=(.*?);#=#", "`$1;#=#" } | ForEach-Object { $($_ -split";#=#")[0, -1] })
+Write-Output $(pdoskey /macros | Sort-Object | Select-String ";#=#" | ForEach-Object { $_ -replace "^(.*?)=(.*?);#=#", "`$1;#=#" } | ForEach-Object { $($_ -split";#=#")[0, -1] })

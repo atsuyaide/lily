@@ -56,6 +56,12 @@ This is help.
 "@
 }
 
+function initialize {
+   Copy-Item -Confirm $Env:_ROOT\.lilyrc $Env:USERPROFILE
+   Copy-Item -Confirm $Env:_ROOT\alias.txt $Env:USERPROFILE
+   Copy-Item -Confirm $Env:_ROOT\bookmark.txt $Env:USERPROFILE
+}
+
 if ($Command -eq "version") {
    showVersion
 } elseif ($Command -eq "logo") {
@@ -68,6 +74,8 @@ if ($Command -eq "version") {
    reload 
 } elseif ($Command -eq "help") {
    showHelp
+} elseif ($Command -eq "init") {
+   initialize 
 } elseif ($Command -eq "") {
    showHelp
 } else {
