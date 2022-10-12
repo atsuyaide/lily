@@ -1,8 +1,8 @@
 ﻿## HOME Directory
 ## Set the home directory. Lily will go to this path when it starts up.
-$Env:HOME=$Env:USERPROFILE
+$Env:InitDir=$Env:USERPROFILE
 ## If you want it to start on Desktop
-# $Env:HOME=$(Join-Path $Env:USERPROFILE "Desktop")
+# $Env:InitDir=$(Join-Path $Env:USERPROFILE "Desktop")
 
 ## Browser Setting
 ## Set the default browser. The browser set here will be used by `bopen` command.
@@ -10,7 +10,7 @@ $Env:DefaultBrowser="C:\Program Files (x86)\Microsoft\Edge\Application\msedge.ex
 ## If you want to specify Chrome as your default browser (Chrome must be installed)
 # $Env:DefaultBrowser="C:\Program Files\Google\Chrome\Application\chrome.exe"
 
-## Promt Settins
+## Promt Setting
 Set-Item function:Global:prompt {$host.UI.WriteLine("Green", $host.UI.RawUI.BackgroundColor, (Convert-Path $pwd)); Get-Date -Format "yy/MM/dd hh:MM:ss >> " }
 
 ## Miniconda(Python)

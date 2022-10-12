@@ -10,4 +10,4 @@ $Env:HOME=$Env:USERPROFILE
 
 # Startup
 lily load 
-cd $Env:HOME
+Set-Location $Env:InitDir
