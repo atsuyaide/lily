@@ -169,7 +169,7 @@ github
 > **Note**.
 > Uncommented aliases do not appear in the `manual` list.
 
-### Enable other software (Git, Python, ...) other software (Git, Python, ...)
+### Enable other software (Git, Python, ...)
 
 This is a way to add more advanced features.
 You will need to install other software depending on what you want to do, but if you enable Python or other software in Lily, you will be able to expand the range of what is possible.
