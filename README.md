@@ -126,12 +126,12 @@ The contents of `github.ps1` is as follows.
 ```PowerShell
 <#
     .SYNOPSIS
-      Open Github page
+        Open Github page
 #>
 bopen "https://github.com/"
 ```
 
-The first four lines are a description of the command, `Get-Help` compatible [help comment](https://learn.microsoft.com/en-us/powershell/scripting/developer/help/examples-of-comment- based-help).
+The first four lines are a description of the command, `Get-Help` compatible [help comment](https://learn.microsoft.com/en-us/powershell/scripting/developer/help/examples-of-comment-based-help).
 If `SYNOPSIS` is listed, it is automatically read when the `manual` command is executed.
 
 ```PowerShell
