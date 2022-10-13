@@ -190,7 +190,7 @@ If you have installed Miniconda in `$Env:USERPROFILE`, here is the configuration
 conda activate "$Env:USERPROFILE\miniconda3"
 ```
 
-After restarting `cinit` or Lily, Python and `conda` commands will be available.
+Execute `cinit` or restart Lily, Python and `conda` commands will be available.
 
 **git, grep, awk, etc. will be available**.
 
@@ -204,4 +204,4 @@ If you have Git for Windows installed in `C:\Program Files`, here is the configu
 $Env:PATH="C:\Program Files\Git\bin;C:\Program Files\Git\usr\bin;" + $Env:PATH
 ```
 
-Restarting `cinit` or Lily will make the commands that come standard with Git for Windows available.
+Run `cinit` or restart Lily will make the commands that come standard with Git for Windows available.
