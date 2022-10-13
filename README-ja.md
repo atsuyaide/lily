@@ -143,6 +143,9 @@ github
 ...
 ```
 
+> **Note**
+> Commands without SYNOPSIS will not appear in the manual list.
+
 **Alias を利用する場合**
 
 `$Env:HOME\alias.txt` に以下を追加し, `ainit` を実行または Lily を再起動します.
@@ -162,6 +165,9 @@ github
  Open Github page
 ...
 ```
+
+> **Note**
+> Commands without comment will not appear in the manual list.
 
 ### 他ソフトウェア(Git, Python, ...)を利用可能にする
 
