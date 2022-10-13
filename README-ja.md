@@ -109,10 +109,10 @@ Lily を再起動し初期ディレクトリが変わっていることを確認
 どちらでも簡単に Lily から呼び出し可能になりますが, それぞれの機能差分は以下の表です.
 実現したい機能に応じて適切な方法を選択してください.
 
-|         | Easiness | Arguments | Pipeline | Complex processing |
-| :------ | :------: | :-------: | :------: | :----------------: |
-| Command |    x     |     x     |    x     |         x          |
-| Alias   |    xx    |     x     |          |                    |
+|         |               Easiness               |     Arguments      |      Pipeline      | Complex processing |
+| :------ | :----------------------------------: | :----------------: | :----------------: | :----------------: |
+| Command |          :heavy_check_mark:          | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Alias   | :heavy_check_mark::heavy_check_mark: | :heavy_check_mark: |                    |                    |
 
 例として, `github`で GitHub をブラウザで開くコマンドを追加してみましょう.
 
