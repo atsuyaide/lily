@@ -5,7 +5,6 @@ PowerShell を利用するため特別なソフトウェアをインストール
 (もしもあなたの業務用 Windows PC にソフトウェアを無断でインストールすることが禁止されていても安心です)
 
 また, もしもあなたが簡単なプログラミングをできるなら Lily はより強力なツールになります.
-[Tutorial](#tutorial) を終わらせ, 様々な機能をすることができます.
 
 **動作要件**
 
@@ -131,7 +130,7 @@ $Env:DefaultBrowser="C:\path\to\Chrome.exe" # NOTE: Specify the path to the Chro
 bopen "https://github.com/"
 ```
 
-冒頭 4 行はコマンドの説明文で, `Get-Help` 対応の(ヘルプコメント)[https://learn.microsoft.com/en-us/powershell/scripting/developer/help/examples-of-comment-based-help]です.
+冒頭 4 行はコマンドの説明文で, `Get-Help` 対応の[ヘルプコメント](https://learn.microsoft.com/en-us/powershell/scripting/developer/help/examples-of-comment-based-help)です.
 `SYNOPSIS` を記載している場合 `manual` コマンド実行時に自動で読み込まれます.
 
 ```PowerShell
@@ -144,7 +143,7 @@ github
 ```
 
 > **Note**
-> Commands without SYNOPSIS will not appear in the manual list.
+> SYNOPSIS のないコマンドは `manual` 一覧に表示されません
 
 **Alias を利用する場合**
 
@@ -167,7 +166,7 @@ github
 ```
 
 > **Note**
-> Commands without comment will not appear in the manual list.
+> コメントのないエイリアスは `manual` 一覧に表示されません
 
 ### 他ソフトウェア(Git, Python, ...)を利用可能にする
 
