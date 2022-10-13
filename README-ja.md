@@ -203,4 +203,4 @@ conda activate "$Env:USERPROFILE\miniconda3"
 $Env:PATH="C:\Program Files\Git\bin;C:\Program Files\Git\usr\bin;" + $Env:PATH
 ```
 
-`cinit` または Lily を再起動すると Git for windows に標準搭載されているコマンドが利用可能になります.
+`cinit` または Lily を再起動すると Git for Windows に標準搭載されているコマンドが利用可能になります.
