@@ -1,10 +1,11 @@
 # Lily
 
 Lily is a lightweight CLI tool based on PowerShell.
-You do not need to install any special software to use PowerShell.
-(If you are not allowed to install software on your Windows PC without permission, don't worry.)
+You do not need to install any special software to use the basic functions of PowerShell.
 
-Lily is also a more powerful tool if you can do some simple programming.
+Also, if you can do simple programming, Lily can be a more powerful tool.
+
+[日本語版 README](https://github.com/atsuyaide/lily/blob/main/README-ja.md)
 
 **Requirements**.
 
@@ -19,12 +20,12 @@ Simply download this repository and run `setup.ps1`.
 2.  Run `setup.ps1` in the project folder.
     1. If you are using File Explorer, select the file and right-click.
     2. Click `Run with PowerShell`.
-3.  Lily.lnk`will be created in the same folder as`setup.ps1`.
+3.  `Lily.lnk` will be created in the same folder as `setup.ps1`.
 
 `Lily.lnk` is a shortcut to start Lily, and you can double-click it to start Lily.
 
 Once Lily is launched, type `google` and run it.
-You should see the Google search page open in Microsoft Edge!
+Google search page can now be opened in Microsoft Edge
 
 As you can see, Lily can easily open a specific web page or folder with a command.
 You can also change the web browser used and easily add more web pages to be opened by rewriting the configuration file.
@@ -52,18 +53,18 @@ Understanding this section will allow you to customize Lily in a flexible way.
 
 ### Configuration File
 
-| File Name      | Description                                                           |
-| :------------- | :-------------------------------------------------------------------- |
-| `.lilyrc`      | configuration file loaded at startup (described in PowerShell syntax) |
-| `alias.txt`    | alias file to be loaded at startup                                    |
-| `bookmark.txt` | list of pages to open with the `binit` command                        |
+| File Name      | Description                                              |
+| :------------- | :------------------------------------------------------- |
+| `.lilyrc`      | configuration file loaded at startup (PowerShell syntax) |
+| `alias.txt`    | alias file to be loaded at startup                       |
+| `bookmark.txt` | list of pages to open with the `binit` command           |
 
 `.lilyrc` and `alias.txt` are read at startup under `$Env:_ROOT` -> `$Env:USERPROFILE`.
 `bookmark.txt` reads only one of them, with priority `$Env:USEPROFILE` > `$Env:_ROOT`.
 
 ### Commands and aliases
 
-Lily provides various functions (e.g. `manual`, `google`, `lily`, ...) in addition to the default PowerShell commands. These features are specific to Lily.
+Lily provides various functions (e.g. `manual`, `google`, `lily`, ...) in addition to the default PowerShell commands.
 These Lily-specific features can be classified into commands and aliases, and the `manual` command displays a list of commands and aliases separately.
 
 | Type    | Description                                                                                   |
@@ -75,7 +76,7 @@ If you want to reload the configuration file, you can do so with the following c
 
 - `alias.txt` : `ainit`.
 - `bookmark.txt` : `binit`.
-- `.lilyrc` : `cinit` All: `lily reload
+- `.lilyrc` : `cinit`
 - All: `lily reload` : `cinit`
 
 ## Tutorial
@@ -98,7 +99,7 @@ $Env:DefaultBrowser="C:\path\to\Chrome.exe" # NOTE: Specify the path to the Chro
 
 the following changes will occur.
 
-- The initial directory at startup is now the desktop
+- The initial directory at startup is now the Desktop
 - Default browser is now Chrome
 
 Please restart `cinit` or Lily to make sure the initial directory has changed.
@@ -204,7 +205,3 @@ $Env:PATH="C:\Program Files\Git\bin;C:\Program Files\Git\usr\bin;" + $Env:PATH
 ```
 
 Restarting `cinit` or Lily will make the commands that come standard with Git for Windows available.
-
-```
-
-```
