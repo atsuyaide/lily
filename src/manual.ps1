@@ -18,4 +18,14 @@ Write-Output ""
 
 # Aliases with no comments listed will not appear in the manual listing
 Write-Output "==== Aliases ===="
-Write-Output $(pdoskey /macros | Sort-Object | Select-String ";#=#" | ForEach-Object { $_ -replace "^(.*?)=(.*?);#=#", "`$1;#=#" } | ForEach-Object { $($_ -split";#=#")[0, -1] })
+$(Get-ChildItem function:)| foreach-object {
+    if ($_.Source -eq "Lily") {
+        $helpObject = Get-Help $_.Name
+        if ($helpObject.SYNOPSIS -notmatch "`n") {
+            $SYNOPSIS = $helpObject.SYNOPSIS
+            Write-Output $_.Name
+            Write-Output " $SYNOPSIS"
+        }
+    }
+}
+# Write-Output $(pdoskey /macros | Sort-Object | Select-String ";#=#" | ForEach-Object { $_ -replace "^(.*?)=(.*?);#=#", "`$1;#=#" } | ForEach-Object { $($_ -split";#=#")[0, -1] })

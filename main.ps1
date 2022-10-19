@@ -1,5 +1,5 @@
 ﻿# Encoding UTF-8 with BOM
-Remove-Module PSReadLine # To make doskey available in powershell
+# Remove-Module PSReadLine # To make doskey available in powershell
 
 # Setup Environment variables
 $Env:_VERSION="0.1.0"
