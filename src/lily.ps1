@@ -57,7 +57,7 @@ This is help.
 }
 
 function initialize {
-   Copy-Item -Confirm $Env:_ROOT\.lilyrc $Env:USERPROFILE
+   Copy-Item -Confirm $Env:_ROOT\profile $Env:USERPROFILE\.lilyrc
    Copy-Item -Confirm $Env:_ROOT\alias.txt $Env:USERPROFILE
    Copy-Item -Confirm $Env:_ROOT\bookmark.txt $Env:USERPROFILE
 }

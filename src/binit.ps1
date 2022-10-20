@@ -4,7 +4,7 @@
 #>
 
 $ROOT_PROFILE=$(Join-Path $Env:_ROOT "bookmark.txt")
-$USER_PROFILE=$(Join-Path $Env:USERPROFILE "bookmark.txt")
+$USER_PROFILE=$(Join-Path $Env:HOME "bookmark.txt")
 
 if (Test-Path $USER_PROFILE) {
     $PROFILE=$USER_PROFILE
