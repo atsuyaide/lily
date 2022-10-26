@@ -26,15 +26,16 @@ function makeFucntion($Param) {
 }
 
 
-$tempPsmPath = $(Join-Path $Env:HOME "\Lily.psm1")
-
+$tmpPsmPath = $(Join-Path $Env:HOME "\Lily.psm1")
 $rootProfile = $(Join-Path "$Env:_ROOT" "alias.txt")
-Get-Content $rootProfile | ForEach-Object {Write-Output $(makeFucntion($_)) >> $tempPsmPath}
-
 $userProfile = $(Join-Path "$Env:HOME" "alias.txt")
+
+Get-Content $rootProfile | ForEach-Object {
+    Write-Output $(makeFucntion($_)) >> $tmpPsmPath
+}
 if (Test-Path $userProfile) {
-    Get-Content $userProfile | ForEach-Object {Write-Output $(makeFucntion($_)) >> $tempPsmPath}
+    Get-Content $userProfile | ForEach-Object {Write-Output $(makeFucntion($_)) >> $tmpPsmPath}
 }
 
-Import-Module $tempPsmPath
-Remove-Item $tempPsmPath -Force
+Import-Module $tmpPsmPath
+Remove-Item $tmpPsmPath -Force

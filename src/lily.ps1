@@ -34,9 +34,9 @@ Type "manual" to show command list
 }
 
 function load() {
+   showLogo
    ainit
    cinit
-   showLogo
 }
 
 function reload() {
@@ -57,9 +57,9 @@ This is help.
 }
 
 function initialize {
-   Copy-Item -Confirm $Env:_ROOT\profile $Env:USERPROFILE\.lilyrc
-   Copy-Item -Confirm $Env:_ROOT\alias.txt $Env:USERPROFILE
-   Copy-Item -Confirm $Env:_ROOT\bookmark.txt $Env:USERPROFILE
+   Copy-Item -Confirm $Env:_ROOT\profile $Env:HOME\.lilyrc
+   Copy-Item -Confirm $Env:_ROOT\alias.txt $Env:HOME
+   Copy-Item -Confirm $Env:_ROOT\bookmark.txt $Env:HOME
 }
 
 if ($Command -eq "version") {

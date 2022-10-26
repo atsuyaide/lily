@@ -4,18 +4,22 @@
 #>
 
 # Load root profile
-$Lilyrc=$(Join-Path "$Env:_ROOT" "profile")
-$Lilyrc_TMP=$(Join-Path "$Env:HOME" "lilyrc.ps1")
-Copy-Item -Force "$Lilyrc" "$Lilyrc_TMP"
-. "$Lilyrc_TMP"
-Remove-Item -Force "$Lilyrc_TMP"
+$lilyProfile = $(Join-Path "$Env:_ROOT" "profile")
+$tmpProfilePath = $(Join-Path "$Env:HOME" "profile.ps1")
+Copy-Item -Force "$lilyProfile" "$tmpProfilePath"
+. "$tmpProfilePath"
+if (Test-Path "$tmpProfilePath") {
+    Remove-Item -Force "$tmpProfilePath"
+}
 
 # Load user profile
-$USER_PROFILE=$(Join-Path "$Env:HOME" ".lilyrc")
+$USER_PROFILE = $(Join-Path "$Env:HOME" ".lilyrc")
 if (Test-Path "$USER_PROFILE") {
-    $Lilyrc=$(Join-Path "$Env:HOME" ".lilyrc")
-    $Lilyrc_TMP=$(Join-Path "$Env:HOME" "lilyrc.ps1")
-    Copy-Item -Force "$Lilyrc" "$Lilyrc_TMP"
-    . "$Lilyrc_TMP"
-    Remove-Item -Force "$Lilyrc_TMP"
+    $lilyrc = $(Join-Path "$Env:HOME" ".lilyrc")
+    $tmpLilyrcPath = $(Join-Path "$Env:HOME" "lilyrc.ps1")
+    Copy-Item -Force "$lilyrc" "$tmpLilyrcPath"
+    . "$tmpLilyrcPath"
+    if (Test-Path "$tmpLilyrcPath") {
+        Remove-Item -Force "$tmpLilyrcPath"
+    }
 }
