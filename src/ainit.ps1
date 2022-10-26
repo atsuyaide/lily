@@ -38,4 +38,6 @@ if (Test-Path $userProfile) {
 }
 
 Import-Module $tmpPsmPath
-Remove-Item $tmpPsmPath -Force
+if (Test-Path $tmpPsmPath ) {
+    Remove-Item $tmpPsmPath -Force
+}
