@@ -5,12 +5,6 @@ You do not need to install any special software to use the basic functions of Po
 
 Also, if you can do simple programming, Lily can be a more powerful tool.
 
-[日本語版 README](https://github.com/atsuyaide/lily/blob/main/README-ja.md)
-
-**Requirements**.
-
-Windows PC running PowerShell
-
 ## Setup
 
 Setting up Lily is very easy.
@@ -59,8 +53,9 @@ Understanding this section will allow you to customize Lily in a flexible way.
 | `alias.txt`    | alias file to be loaded at startup                       |
 | `bookmark.txt` | list of pages to open with the `binit` command           |
 
-`.lilyrc` and `alias.txt` are read at startup under `$Env:_ROOT` -> `$Env:USERPROFILE`.
-`bookmark.txt` reads only one of them, with priority `$Env:USEPROFILE` > `$Env:_ROOT`.
+- `.lilyrc` reads at startup under `$Env:HOME`.
+- `alias.txt` reads at startup under `$Env:_ROOT` -> `$Env:HOME`.
+- `bookmark.txt` reads only one of them, with priority `$Env:HOME` > `$Env:_ROOT`.
 
 ### Commands and aliases
 
@@ -77,13 +72,13 @@ If you want to reload the configuration file, you can do so with the following c
 - `alias.txt` : `ainit`.
 - `bookmark.txt` : `binit`.
 - `.lilyrc` : `cinit`
-- All: `lily reload` : `cinit`
+- All: `lily reload`
 
 ## Tutorial
 
 Lily can be customized flexibly by editing environment variables and configuration files.
 
-First, run `lily init` as a preliminary step.
+First, run `Write-Output "" > $Env:HOME\.lilyrc` as a preliminary step.
 You will be asked if you want to save the files, so unless you want to overwrite them, just press Enter to complete the process.
 
 ### Adding startup settings
@@ -148,13 +143,14 @@ github
 
 **If you use Alias**
 
+First, run `Write-Output "" > $Env:HOME\alias.txt` and make `alias.txt`.
 Add the following to `$Env:HOME\alias.txt` , then run `ainit` or restart Lily.
 
 ```text
-github=bopen "https://github.com/";#=# Open GitHub page
+github=bopen "https://github.com/"### Open GitHub page
 ```
 
-`;#=# ` The text after is the command description, which is automatically read by the `manual` command if it is included.
+`###` after is the command description, which is automatically read by the `manual` command if it is included.
 
 ```PowerShell
 >> manual
@@ -165,9 +161,6 @@ github
  Open Github page
 ...
 ```
-
-> **Note**.
-> Uncommented aliases do not appear in the `manual` list.
 
 ### Enable other software (Git, Python, ...)
 
