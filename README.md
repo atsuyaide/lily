@@ -76,7 +76,6 @@ If you want to reload the configuration file, you can do so with the following c
 Lily can be customized flexibly by editing environment variables and configuration files.
 
 First, run `Write-Output "" > $Env:HOME\.lilyrc` as a preliminary step.
-You will be asked if you want to save the files, so unless you want to overwrite them, just press Enter to complete the process.
 
 ### Adding startup settings
 
