@@ -6,7 +6,7 @@
 Param(
    [switch]$version,
    [switch]$help,
-   [Parameter()][ArgumentCompletions("load", "reload")]$command
+   [Parameter()][ArgumentCompletions("load", "reload")]$command = ""
 )
 
 class Lily {
