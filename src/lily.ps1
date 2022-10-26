@@ -1,20 +1,22 @@
 ﻿<#
     .SYNOPSIS
-      Open the URL passed as argument in the default browser
+      Check the version of Lily, restart and more
 #>
 
 Param(
-   [String]$Command
+   [switch]$version,
+   [switch]$help,
+   [Parameter()][ArgumentCompletions("load", "reload")]$command
 )
 
+class Lily {
+   [string] version(){
+      return "v$Env:_VERSION"
+   }
 
-function showVersion() {
-   Write-Output "v$Env:_VERSION"
-}
-
-function showLogo() {
+   [string] logo(){
    # Using DOS Rabel in https://textkool.com/ja/ascii-art-generator
-   Write-Output @"
+   return @"
 
    █████        ███  ████            
   ░░███        ░░░  ░░███            
@@ -25,52 +27,49 @@ function showLogo() {
    ███████████ █████ █████ ░░███████ 
   ░░░░░░░░░░░ ░░░░░ ░░░░░   ░░░░░███ 
                             ███ ░███ 
-                           ░░██████   v$ENV:_VERSION
+                           ░░██████   $($this.version())
                             ░░░░░░   
 
 Type "manual" to show command list
 
 "@
-}
+   }
 
-function load() {
-   showLogo
-   ainit
-   cinit
-}
+   [void] load() {
+      Write-Host $this.logo()
+      ainit
+      cinit
+   }
 
-function reload() {
-   cls
-   load
-}
+   [void] reload() {
+      Clear-Host
+      $this.load()
+   }
 
-function showLicense {
-   Get-Content "$Env:_ROOT\LICENSE"
-}
+   [String] help() {
+      return @"
+Usage: lily [-version] [-help] <command>
 
-function showHelp() {
-   Write-Output @"
-Lily v$Env:_VERSION
+Lily has the following commands:
 
-This is help.
+   load     Load ``profile`, `alias.txt`` and `.lilyrc` and exit
+   reload   Clear the screen and restart Lily
 "@
+   }
 }
 
-if ($Command -eq "version") {
-   showVersion
-} elseif ($Command -eq "logo") {
-   showLogo
+$lily = [Lily]::new()
+
+if ($version) {
+   Write-Output $lily.version()
+} elseif ($help) {
+   Write-Output $lily.help()
 } elseif ($Command -eq "load") {
-   load 
-} elseif ($Command -eq "license") {
-   showLicense 
+   $lily.load()
 } elseif ($Command -eq "reload") {
-   reload 
-} elseif ($Command -eq "help") {
-   showHelp
+   $lily.reload()
 } elseif ($Command -eq "") {
-   showHelp
+   Write-Output $lily.help()
 } else {
-   Write-Host "`"$command`" does not defined"
-   showHelp
+   Write-Output "`"$command`" does not defined`n$($lily.help())"
 }
