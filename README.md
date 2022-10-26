@@ -106,7 +106,7 @@ Please choose the appropriate method according to the function you want to reali
 |         |               Easiness               |     Arguments      |      Pipeline      | Complex processing |
 | :------ | :----------------------------------: | :----------------: | :----------------: | :----------------: |
 | Command |          :heavy_check_mark:          | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Alias   | :heavy_check_mark::heavy_check_mark: | :heavy_check_mark: |                    |                    |
+| Alias   | :heavy_check_mark::heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |
 
 As an example, let's add a command to open GitHub with `github` in your browser.
 
