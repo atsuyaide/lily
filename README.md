@@ -194,7 +194,7 @@ You can install it anywhere.
 If you have Git for Windows installed in `C:\Program Files`, here is the configuration.
 
 ```PowerShell
-$Env:PATH="C:\Program Files\Git\bin;C:\Program Files\Git\usr\bin;" + $Env:PATH
+$Env:PATH += ";C:\Program Files\Git\bin;C:\Program Files\Git\usr\bin"
 ```
 
 Run `cinit` or restart Lily will make the commands that come standard with Git for Windows available.
