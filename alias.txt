@@ -1,5 +1,6 @@
 ﻿sh=start $Env:HOME ### Open $Env:HOME
 ch=cd $Env:HOME ### Go to $Env:HOME
+ci=cd $Env:InitDir ### Go to $Env:InitDir
 gel=Get-Location
 pc=Convert-Path $pwd | clip ### Copies the current directory path to the clipboard
 google=bopen "https://www.google.com/" ### Open Google in the default browser

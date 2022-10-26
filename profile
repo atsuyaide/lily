@@ -1,10 +1,4 @@
-﻿## HOME Directory
-## Set the home directory. Lily will go to this path when it starts up.
-$Env:InitDir = $Env:USERPROFILE
-## If you want it to start on Desktop
-# $Env:InitDir = $(Join-Path $Env:USERPROFILE "Desktop")
-
-## Browser Setting
+﻿## Browser Setting
 ## Set the default browser. The browser set here will be used by `bopen` command.
 $Env:DefaultBrowser = "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
 ## If you want to specify Chrome as your default browser (Chrome must be installed)
@@ -24,4 +18,3 @@ Set-Item function:Global:prompt {$host.UI.WriteLine("Green", $host.UI.RawUI.Back
 ## Note: Not all commands can be fully supported due to conflicting command names (e.g. `ls` command).
 ##       If you have a better solution, please let us know in an Issue:)
 #$Env:PATH += "C:\Program Files\Git\bin;C:\Program Files\Git\usr\bin;"
-
