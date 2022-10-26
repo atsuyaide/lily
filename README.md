@@ -1,9 +1,6 @@
 # Lily
 
-Lily is a lightweight CLI tool based on PowerShell.
-You do not need to install any special software to use the basic functions of PowerShell.
-
-Also, if you can do simple programming, Lily can be a more powerful tool.
+Lily is a lightweight CLI tool based on PowerShell that can be easily customized like Bash and runs anywhere PowerShell runs.
 
 ## Setup
 
