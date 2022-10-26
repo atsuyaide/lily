@@ -159,6 +159,9 @@ github
 ...
 ```
 
+> **Note**.
+> Uncommented aliases do not appear in the manual list.
+
 ### Enable other software (Git, Python, ...)
 
 This is a way to add more advanced features.
