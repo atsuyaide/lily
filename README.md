@@ -75,7 +75,7 @@ If you want to reload the configuration file, you can do so with the following c
 
 Lily can be customized flexibly by editing environment variables and configuration files.
 
-First, run `Write-Output "" > $Env:HOME\.lilyrc` as a preliminary step.
+First, run `New-Item $Env:HOME\.lilyrc` as a preliminary step.
 
 ### Adding startup settings
 
@@ -138,7 +138,7 @@ github
 
 **If you use Alias**
 
-First, run `Write-Output "" > $Env:HOME\alias.txt` and make `alias.txt`.
+First, run `New-Item $Env:HOME\alias.txt` and make `alias.txt`.
 Add the following to `alias.txt` , then run `ainit` or restart Lily.
 
 ```text
