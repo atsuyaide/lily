@@ -6,69 +6,48 @@
 Param(
    [switch]$version,
    [switch]$help,
-   [Parameter()][ArgumentCompletions("load", "reload")]$command = ""
+   [string]$command = ""
 )
 
-class Lily {
-   [string] version(){
-      return "v$Env:_VERSION"
-   }
+$logoText = @"
 
-   [string] logo(){
-      # Using DOS Rabel in https://textkool.com/ja/ascii-art-generator
-      return (
-         "`n" +
-         "   █████        ███  ████`n" +
-         "  ░░███        ░░░  ░░███`n" +
-         "   ░███        ████  ░███  █████ ████`n" +
-         "   ░███       ░░███  ░███ ░░███ ░███`n" +
-         "   ░███        ░███  ░███  ░███ ░███`n" +
-         "   ░███      █ ░███  ░███  ░███ ░███`n" +
-         "   ███████████ █████ █████ ░░███████`n" +
-         "  ░░░░░░░░░░░ ░░░░░ ░░░░░   ░░░░░███`n" +
-         "                            ███ ░███`n" +
-         "                           ░░██████   $($this.version())`n" +
-         "                            ░░░░░░`n" +
-         "`n" +
-         "Type `"manual`" to show command list`n"
-      )
-   }
+   █████        ███  ████
+  ░░███        ░░░  ░░███
+   ░███        ████  ░███  █████ ████
+   ░███       ░░███  ░███ ░░███ ░███
+   ░███        ░███  ░███  ░███ ░███
+   ░███      █ ░███  ░███  ░███ ░███
+   ███████████ █████ █████ ░░███████
+  ░░░░░░░░░░░ ░░░░░ ░░░░░   ░░░░░███
+                            ███ ░███
+                           ░░██████   v$($Env:_VERSION)
+                            ░░░░░░
 
-   [void] load() {
-      Write-Host $this.logo()
-      _ainit
-      _cinit
-   }
+Type `"manual`" to show command list
+"@
 
-   [void] reload() {
-      Clear-Host
-      $this.load()
-   }
+$helpText = @"
+Usage: lily [-version] [-help] <command>`
 
-   [String] help() {
-      return (
-         "Usage: lily [-version] [-help] <command>`n" +
-         "`n" +
-         "Lily has the following commands:`n" +
-         "`n" +
-         "   load     Load ``profile`, `alias.txt`` and `.lilyrc` and exit`n" +
-         "   reload   Clear the screen and restart Lily`n"
-      )
-   }
-}
-
-$lily = [Lily]::new()
+Lily has the following commands:
+   load     Load ``profile``, ``alias.txt`` and ``.lilyrc`` and exit
+   reload   Clear the screen and restart Lily
+"@
 
 if ($version) {
-   Write-Output $lily.version()
+   Write-Output "v$($Env:_VERSION)"
 } elseif ($help) {
-   Write-Output $lily.help()
+   Write-Output $helpText
+} elseif ($Command -eq "logo") {
+   Write-Output $logoText
 } elseif ($Command -eq "load") {
-   $lily.load()
+   _ainit
+   _cinit
 } elseif ($Command -eq "reload") {
-   $lily.reload()
+   Clear-Host
+   . $Env:_ROOT\main.ps1
 } elseif ($Command -eq "") {
-   Write-Output $lily.help()
+   Write-Output $helpText
 } else {
-   Write-Output "`"$command`" command does not defined`n$($lily.help())"
+   Write-Output "`"$command`" command does not defined`n$helpText"
 }

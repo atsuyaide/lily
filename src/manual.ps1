@@ -14,7 +14,7 @@ Get-ChildItem "$env:_SRC\[a-zA-Z]`*.ps1" -File | Foreach-Object {
     }
 }
 
-$out += "==== Aliases ===="
+$out += "`n==== Aliases ===="
 Get-ChildItem function: | foreach-object {
     if ($_.Source -eq "Lily") {
         $aliasName = $_.Name
