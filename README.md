@@ -139,7 +139,7 @@ github
 **If you use Alias**
 
 First, run `New-Item $Env:HOME\alias.txt` and make `alias.txt`.
-Add the following to `alias.txt` , then run `ainit` or restart Lily.
+Add the following to `alias.txt` , then run `lily reload`.
 
 ```text
 github=bopen "https://github.com/" ### Open GitHub page

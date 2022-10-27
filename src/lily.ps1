@@ -15,30 +15,29 @@ class Lily {
    }
 
    [string] logo(){
-   # Using DOS Rabel in https://textkool.com/ja/ascii-art-generator
-   return @"
-
-   █████        ███  ████            
-  ░░███        ░░░  ░░███            
-   ░███        ████  ░███  █████ ████
-   ░███       ░░███  ░███ ░░███ ░███ 
-   ░███        ░███  ░███  ░███ ░███ 
-   ░███      █ ░███  ░███  ░███ ░███ 
-   ███████████ █████ █████ ░░███████ 
-  ░░░░░░░░░░░ ░░░░░ ░░░░░   ░░░░░███ 
-                            ███ ░███ 
-                           ░░██████   $($this.version())
-                            ░░░░░░   
-
-Type "manual" to show command list
-
-"@
+      # Using DOS Rabel in https://textkool.com/ja/ascii-art-generator
+      return (
+         "`n" +
+         "   █████        ███  ████`n" +
+         "  ░░███        ░░░  ░░███`n" +
+         "   ░███        ████  ░███  █████ ████`n" +
+         "   ░███       ░░███  ░███ ░░███ ░███`n" +
+         "   ░███        ░███  ░███  ░███ ░███`n" +
+         "   ░███      █ ░███  ░███  ░███ ░███`n" +
+         "   ███████████ █████ █████ ░░███████`n" +
+         "  ░░░░░░░░░░░ ░░░░░ ░░░░░   ░░░░░███`n" +
+         "                            ███ ░███`n" +
+         "                           ░░██████   $($this.version())`n" +
+         "                            ░░░░░░`n" +
+         "`n" +
+         "Type `"manual`" to show command list`n"
+      )
    }
 
    [void] load() {
       Write-Host $this.logo()
-      ainit
-      cinit
+      _ainit
+      _cinit
    }
 
    [void] reload() {
@@ -47,14 +46,14 @@ Type "manual" to show command list
    }
 
    [String] help() {
-      return @"
-Usage: lily [-version] [-help] <command>
-
-Lily has the following commands:
-
-   load     Load ``profile`, `alias.txt`` and `.lilyrc` and exit
-   reload   Clear the screen and restart Lily
-"@
+      return (
+         "Usage: lily [-version] [-help] <command>`n" +
+         "`n" +
+         "Lily has the following commands:`n" +
+         "`n" +
+         "   load     Load ``profile`, `alias.txt`` and `.lilyrc` and exit`n" +
+         "   reload   Clear the screen and restart Lily`n"
+      )
    }
 }
 
@@ -71,5 +70,5 @@ if ($version) {
 } elseif ($Command -eq "") {
    Write-Output $lily.help()
 } else {
-   Write-Output "`"$command`" does not defined`n$($lily.help())"
+   Write-Output "`"$command`" command does not defined`n$($lily.help())"
 }
