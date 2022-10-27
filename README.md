@@ -86,14 +86,13 @@ For example, in `$Env:HOME\.lilyrc`, add
 ```PowerShell
 $Env:InitDir="$Env:USERPROFILE\Desktop"
 $Env:DefaultBrowser="C:\path\to\Chrome.exe" # NOTE: Specify the path to the Chrome.exe
+Set-Location $Env:InitDir
 ```
 
-the following changes will occur.
+The following changes occur when `lily reload` is executed.
 
 - The initial directory at startup is now the Desktop
-- Default browser is now Chrome
-
-Please restart `cinit` or Lily to make sure the initial directory has changed.
+- The default browser is now Chrome (Try to run the `google` command)
 
 ### Adding features
 
@@ -140,10 +139,10 @@ github
 **If you use Alias**
 
 First, run `Write-Output "" > $Env:HOME\alias.txt` and make `alias.txt`.
-Add the following to `$Env:HOME\alias.txt` , then run `ainit` or restart Lily.
+Add the following to `alias.txt` , then run `ainit` or restart Lily.
 
 ```text
-github=bopen "https://github.com/"### Open GitHub page
+github=bopen "https://github.com/" ### Open GitHub page
 ```
 
 `###` after is the command description, which is automatically read by the `manual` command if it is included.
@@ -182,7 +181,7 @@ If you have installed Miniconda in `$Env:USERPROFILE`, here is the configuration
 conda activate "$Env:USERPROFILE\miniconda3"
 ```
 
-Execute `cinit` or restart Lily, Python and `conda` commands will be available.
+Running `lily reload` will make Python and `conda` commands available.
 
 **git, grep, awk, etc. will be available**.
 
@@ -196,4 +195,4 @@ If you have Git for Windows installed in `C:\Program Files`, here is the configu
 $Env:PATH += ";C:\Program Files\Git\bin;C:\Program Files\Git\usr\bin"
 ```
 
-Run `cinit` or restart Lily will make the commands that come standard with Git for Windows available.
+Running `lily reload` will make Git for Windows commands available.
