@@ -3,5 +3,6 @@
         Displays a list of aliases that are registered in doskey
 #>
 
-
-pdoskey /macros | Sort-Object | ForEach-Object { $_ -replace ";#=#(.*?)$", ""}
+$(Get-ChildItem function:)| foreach-object {
+    if ($_.Source -eq "Lily") { Write-Output $_.Name }
+}

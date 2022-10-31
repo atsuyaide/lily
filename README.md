@@ -1,15 +1,6 @@
 # Lily
 
-Lily is a lightweight CLI tool based on PowerShell.
-You do not need to install any special software to use the basic functions of PowerShell.
-
-Also, if you can do simple programming, Lily can be a more powerful tool.
-
-[日本語版 README](https://github.com/atsuyaide/lily/blob/main/README-ja.md)
-
-**Requirements**.
-
-Windows PC running PowerShell
+Lily is a lightweight CLI tool based on PowerShell that can be easily customized like Bash and runs anywhere PowerShell runs.
 
 ## Setup
 
@@ -59,8 +50,9 @@ Understanding this section will allow you to customize Lily in a flexible way.
 | `alias.txt`    | alias file to be loaded at startup                       |
 | `bookmark.txt` | list of pages to open with the `binit` command           |
 
-`.lilyrc` and `alias.txt` are read at startup under `$Env:_ROOT` -> `$Env:USERPROFILE`.
-`bookmark.txt` reads only one of them, with priority `$Env:USEPROFILE` > `$Env:_ROOT`.
+- `.lilyrc` reads at startup under `$Env:HOME`.
+- `alias.txt` reads at startup under `$Env:_ROOT` -> `$Env:HOME`.
+- `bookmark.txt` reads only one of them, with priority `$Env:HOME` > `$Env:_ROOT`.
 
 ### Commands and aliases
 
@@ -77,14 +69,13 @@ If you want to reload the configuration file, you can do so with the following c
 - `alias.txt` : `ainit`.
 - `bookmark.txt` : `binit`.
 - `.lilyrc` : `cinit`
-- All: `lily reload` : `cinit`
+- All: `lily reload`
 
 ## Tutorial
 
 Lily can be customized flexibly by editing environment variables and configuration files.
 
-First, run `lily init` as a preliminary step.
-You will be asked if you want to save the files, so unless you want to overwrite them, just press Enter to complete the process.
+First, run `New-Item $Env:HOME\.lilyrc` as a preliminary step.
 
 ### Adding startup settings
 
@@ -95,14 +86,13 @@ For example, in `$Env:HOME\.lilyrc`, add
 ```PowerShell
 $Env:InitDir="$Env:USERPROFILE\Desktop"
 $Env:DefaultBrowser="C:\path\to\Chrome.exe" # NOTE: Specify the path to the Chrome.exe
+Set-Location $Env:InitDir
 ```
 
-the following changes will occur.
+The following changes occur when `lily reload` is executed.
 
 - The initial directory at startup is now the Desktop
-- Default browser is now Chrome
-
-Please restart `cinit` or Lily to make sure the initial directory has changed.
+- The default browser is now Chrome (Try to run the `google` command)
 
 ### Adding features
 
@@ -114,7 +104,7 @@ Please choose the appropriate method according to the function you want to reali
 |         |               Easiness               |     Arguments      |      Pipeline      | Complex processing |
 | :------ | :----------------------------------: | :----------------: | :----------------: | :----------------: |
 | Command |          :heavy_check_mark:          | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Alias   | :heavy_check_mark::heavy_check_mark: | :heavy_check_mark: |                    |                    |
+| Alias   | :heavy_check_mark::heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |
 
 As an example, let's add a command to open GitHub with `github` in your browser.
 
@@ -148,13 +138,14 @@ github
 
 **If you use Alias**
 
-Add the following to `$Env:HOME\alias.txt` , then run `ainit` or restart Lily.
+First, run `New-Item $Env:HOME\alias.txt` and make `alias.txt`.
+Add the following to `alias.txt` , then run `lily reload`.
 
 ```text
-github=bopen "https://github.com/";#=# Open GitHub page
+github=bopen "https://github.com/" ### Open GitHub page
 ```
 
-`;#=# ` The text after is the command description, which is automatically read by the `manual` command if it is included.
+`###` after is the command description, which is automatically read by the `manual` command if it is included.
 
 ```PowerShell
 >> manual
@@ -167,7 +158,7 @@ github
 ```
 
 > **Note**.
-> Uncommented aliases do not appear in the `manual` list.
+> Uncommented aliases do not appear in the manual list.
 
 ### Enable other software (Git, Python, ...)
 
@@ -190,7 +181,7 @@ If you have installed Miniconda in `$Env:USERPROFILE`, here is the configuration
 conda activate "$Env:USERPROFILE\miniconda3"
 ```
 
-Execute `cinit` or restart Lily, Python and `conda` commands will be available.
+Running `lily reload` will make Python and `conda` commands available.
 
 **git, grep, awk, etc. will be available**.
 
@@ -201,7 +192,7 @@ You can install it anywhere.
 If you have Git for Windows installed in `C:\Program Files`, here is the configuration.
 
 ```PowerShell
-$Env:PATH="C:\Program Files\Git\bin;C:\Program Files\Git\usr\bin;" + $Env:PATH
+$Env:PATH += ";C:\Program Files\Git\bin;C:\Program Files\Git\usr\bin"
 ```
 
-Run `cinit` or restart Lily will make the commands that come standard with Git for Windows available.
+Running `lily reload` will make Git for Windows commands available.

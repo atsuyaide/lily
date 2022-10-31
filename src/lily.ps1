@@ -1,84 +1,53 @@
 ﻿<#
     .SYNOPSIS
-      Open the URL passed as argument in the default browser
+      Check the version of Lily, restart and more
 #>
 
 Param(
-   [String]$Command
+   [switch]$version,
+   [switch]$help,
+   [string]$command = ""
 )
 
+$logoText = @"
 
-function showVersion() {
-   Write-Output "v$Env:_VERSION"
-}
-
-function showLogo() {
-   # Using DOS Rabel in https://textkool.com/ja/ascii-art-generator
-   Write-Output @"
-
-   █████        ███  ████            
-  ░░███        ░░░  ░░███            
+   █████        ███  ████
+  ░░███        ░░░  ░░███
    ░███        ████  ░███  █████ ████
-   ░███       ░░███  ░███ ░░███ ░███ 
-   ░███        ░███  ░███  ░███ ░███ 
-   ░███      █ ░███  ░███  ░███ ░███ 
-   ███████████ █████ █████ ░░███████ 
-  ░░░░░░░░░░░ ░░░░░ ░░░░░   ░░░░░███ 
-                            ███ ░███ 
-                           ░░██████   v$ENV:_VERSION
-                            ░░░░░░   
+   ░███       ░░███  ░███ ░░███ ░███
+   ░███        ░███  ░███  ░███ ░███
+   ░███      █ ░███  ░███  ░███ ░███
+   ███████████ █████ █████ ░░███████
+  ░░░░░░░░░░░ ░░░░░ ░░░░░   ░░░░░███
+                            ███ ░███
+                           ░░██████   v$($Env:_VERSION)
+                            ░░░░░░
 
-Type "manual" to show command list
-
+Type `"manual`" to show command list
 "@
-}
 
-function load() {
-   ainit
-   cinit
-   showLogo
-}
+$helpText = @"
+Usage: lily [-version] [-help] <command>`
 
-function reload() {
-   cls
-   load
-}
-
-function showLicense {
-   Get-Content "$Env:_ROOT\LICENSE"
-}
-
-function showHelp() {
-   Write-Output @"
-Lily v$Env:_VERSION
-
-This is help.
+Lily has the following commands:
+   load     Load ``profile``, ``alias.txt`` and ``.lilyrc`` and exit
+   reload   Clear the screen and restart Lily
 "@
-}
 
-function initialize {
-   Copy-Item -Confirm $Env:_ROOT\.lilyrc $Env:USERPROFILE
-   Copy-Item -Confirm $Env:_ROOT\alias.txt $Env:USERPROFILE
-   Copy-Item -Confirm $Env:_ROOT\bookmark.txt $Env:USERPROFILE
-}
-
-if ($Command -eq "version") {
-   showVersion
+if ($version) {
+   Write-Output "v$($Env:_VERSION)"
+} elseif ($help) {
+   Write-Output $helpText
 } elseif ($Command -eq "logo") {
-   showLogo
+   Write-Output $logoText
 } elseif ($Command -eq "load") {
-   load 
-} elseif ($Command -eq "license") {
-   showLicense 
+   _ainit
+   _cinit
 } elseif ($Command -eq "reload") {
-   reload 
-} elseif ($Command -eq "help") {
-   showHelp
-} elseif ($Command -eq "init") {
-   initialize 
+   Clear-Host
+   . $Env:_ROOT\main.ps1
 } elseif ($Command -eq "") {
-   showHelp
+   Write-Output $helpText
 } else {
-   Write-Host "`"$command`" does not defined"
-   showHelp
+   Write-Output "`"$command`" command does not defined`n$helpText"
 }
