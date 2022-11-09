@@ -26,7 +26,7 @@ function makeFucntion($Param) {
 }
 
 
-$tmpPsmPath = $(Join-Path $Env:HOME "\Lily.psm1")
+$tmpPsmPath = $(Join-Path $Env:_ROOT "\Lily.psm1")
 $rootProfile = $(Join-Path "$Env:_ROOT" "alias.txt")
 $userProfile = $(Join-Path "$Env:HOME" "alias.txt")
 
@@ -37,7 +37,11 @@ if (Test-Path $userProfile) {
     Get-Content $userProfile | ForEach-Object {Write-Output $(makeFucntion($_)) >> $tmpPsmPath}
 }
 
+if (Get-Module -Name Lily) {
+    Remove-Module Lily
+}
 Import-Module $tmpPsmPath
+
 if (Test-Path $tmpPsmPath ) {
     Remove-Item $tmpPsmPath -Force
 }
