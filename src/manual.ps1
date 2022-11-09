@@ -2,10 +2,11 @@
     .SYNOPSIS
         Displays list of available commands
 #>
-$ManualArray = @()
 
 # If help-content is missing or Synopsis is not set, it will not appear in the manual listing
-Get-ChildItem "$env:_SRC\[a-zA-Z]`*.ps1" -File | Foreach-Object {
+
+$ManualArray = @()
+Get-ChildItem "$env:_SRC\[a-zA-Z0-9]`*.ps1" -File | Foreach-Object {
     $commandName = $_.BaseName
     $helpObject = Get-Help $commandName
     $SYNOPSIS = $helpObject.SYNOPSIS
@@ -30,4 +31,4 @@ Get-ChildItem function: | foreach-object {
         }
     }
 }
-$ManualArray | Sort-Object
+$ManualArray | Sort-Object -Property CommandName

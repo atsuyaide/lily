@@ -5,7 +5,7 @@
 
 # Load root profile
 $lilyProfile = $(Join-Path "$Env:_ROOT" "profile")
-$tmpProfilePath = $(Join-Path "$Env:_ROOT" "profile.ps1")
+$tmpProfilePath = $(Join-Path "$Env:HOME" "profile.ps1")
 Copy-Item -Force "$lilyProfile" "$tmpProfilePath"
 . "$tmpProfilePath"
 if (Test-Path "$tmpProfilePath") {

@@ -26,7 +26,7 @@ function makeFucntion($Param) {
 }
 
 
-$tmpPsmPath = $(Join-Path $Env:_ROOT "\Lily.psm1")
+$tmpPsmPath = $(Join-Path $Env:HOME "\Lily.psm1")
 $rootProfile = $(Join-Path "$Env:_ROOT" "alias.txt")
 $userProfile = $(Join-Path "$Env:HOME" "alias.txt")
 

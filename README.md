@@ -126,10 +126,11 @@ If `SYNOPSIS` is listed, it is automatically read when the `manual` command is e
 
 ```PowerShell
 >> manual
-==== Commands ====
+
+CommandName Description
+----------- -----------
 ...
-github
- Open Github page
+github      Open Github page
 ...
 ```
 
@@ -149,11 +150,11 @@ github=bopen "https://github.com/" ### Open GitHub page
 
 ```PowerShell
 >> manual
+
+CommandName Description
+----------- -----------
 ...
-==== Aliases ====
-...
-github
- Open Github page
+github      Open Github page
 ...
 ```
 
