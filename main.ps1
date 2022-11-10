@@ -1,5 +1,5 @@
 ﻿# Setup Environment variables
-$Env:_VERSION = "0.1.0"
+$Env:_VERSION = "0.1.1"
 $Env:_ROOT = $PSScriptRoot
 $Env:_SRC = $(Join-Path $Env:_ROOT "src")
 $Env:HOME = $Env:USERPROFILE
