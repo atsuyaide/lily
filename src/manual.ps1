@@ -14,6 +14,7 @@ Get-ChildItem "$env:_SRC\[a-zA-Z0-9]`*.ps1" -File | Foreach-Object {
         $ManualArray += [PSCustomObject]@{
           "CommandName"=$commandName
           "Description"=$SYNOPSIS
+          "Source"="Commnad"
         }
     }
 }
@@ -25,8 +26,9 @@ Get-ChildItem function: | foreach-object {
         $SYNOPSIS = $helpObject.SYNOPSIS
         if ($helpObject.GetType().Name -ne "String" -and $SYNOPSIS -notmatch "`n") {
             $ManualArray += [PSCustomObject]@{
-              "CommandName"=$aliasName
-              "Description"=$SYNOPSIS
+                "CommandName"=$aliasName
+                "Description"=$SYNOPSIS
+                "Source"="Alias"
             }
         }
     }
