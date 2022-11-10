@@ -66,9 +66,9 @@ These Lily-specific features can be classified into commands and aliases, and th
 
 If you want to reload the configuration file, you can do so with the following command.
 
-- `alias.txt` : `ainit`.
+- `alias.txt` : `lily reload`.
 - `bookmark.txt` : `binit`.
-- `.lilyrc` : `cinit`
+- `.lilyrc` : `lily load`
 - All: `lily reload`
 
 ## Tutorial
